@@ -32,6 +32,7 @@ namespace PersonelTakipSistemi
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupGiris = new System.Windows.Forms.GroupBox();
             this.txtAdres = new System.Windows.Forms.RichTextBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -78,10 +79,33 @@ namespace PersonelTakipSistemi
             this.btnListele = new System.Windows.Forms.Button();
             this.groupKayıt = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.personelTakipDataSet = new PersonelTakipSistemi.PersonelTakipDataSet();
+            this.tblPersonBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tblPersonTableAdapter = new PersonelTakipSistemi.PersonelTakipDataSetTableAdapters.TblPersonTableAdapter();
+            this.ıDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.perAdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.perSoyadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.perYasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.perTCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.perSubeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.perMaasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.perMedeniHalDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.perPozisyonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.perGirisTarihiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.perCalismaDurumuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.perTelefonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.perDogumTarihDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.perCinsiyetDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.perDepartmanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.perMailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.perAdresDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.perSgkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupGiris.SuspendLayout();
             this.groupIslem.SuspendLayout();
             this.groupKayıt.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personelTakipDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblPersonBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupGiris
@@ -547,7 +571,28 @@ namespace PersonelTakipSistemi
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ıDDataGridViewTextBoxColumn,
+            this.perAdDataGridViewTextBoxColumn,
+            this.perSoyadDataGridViewTextBoxColumn,
+            this.perYasDataGridViewTextBoxColumn,
+            this.perTCDataGridViewTextBoxColumn,
+            this.perSubeDataGridViewTextBoxColumn,
+            this.perMaasDataGridViewTextBoxColumn,
+            this.perMedeniHalDataGridViewCheckBoxColumn,
+            this.perPozisyonDataGridViewTextBoxColumn,
+            this.perGirisTarihiDataGridViewTextBoxColumn,
+            this.perCalismaDurumuDataGridViewTextBoxColumn,
+            this.perTelefonDataGridViewTextBoxColumn,
+            this.perDogumTarihDataGridViewTextBoxColumn,
+            this.perCinsiyetDataGridViewTextBoxColumn,
+            this.perDepartmanDataGridViewTextBoxColumn,
+            this.perMailDataGridViewTextBoxColumn,
+            this.perAdresDataGridViewTextBoxColumn,
+            this.perSgkDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.tblPersonBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 21);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -556,6 +601,165 @@ namespace PersonelTakipSistemi
             this.dataGridView1.RowTemplate.Height = 33;
             this.dataGridView1.Size = new System.Drawing.Size(1346, 203);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // personelTakipDataSet
+            // 
+            this.personelTakipDataSet.DataSetName = "PersonelTakipDataSet";
+            this.personelTakipDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tblPersonBindingSource
+            // 
+            this.tblPersonBindingSource.DataMember = "TblPerson";
+            this.tblPersonBindingSource.DataSource = this.personelTakipDataSet;
+            // 
+            // tblPersonTableAdapter
+            // 
+            this.tblPersonTableAdapter.ClearBeforeFill = true;
+            // 
+            // ıDDataGridViewTextBoxColumn
+            // 
+            this.ıDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.ıDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.ıDDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.ıDDataGridViewTextBoxColumn.Name = "ıDDataGridViewTextBoxColumn";
+            this.ıDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.ıDDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // perAdDataGridViewTextBoxColumn
+            // 
+            this.perAdDataGridViewTextBoxColumn.DataPropertyName = "PerAd";
+            this.perAdDataGridViewTextBoxColumn.HeaderText = "PerAd";
+            this.perAdDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.perAdDataGridViewTextBoxColumn.Name = "perAdDataGridViewTextBoxColumn";
+            this.perAdDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // perSoyadDataGridViewTextBoxColumn
+            // 
+            this.perSoyadDataGridViewTextBoxColumn.DataPropertyName = "PerSoyad";
+            this.perSoyadDataGridViewTextBoxColumn.HeaderText = "PerSoyad";
+            this.perSoyadDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.perSoyadDataGridViewTextBoxColumn.Name = "perSoyadDataGridViewTextBoxColumn";
+            this.perSoyadDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // perYasDataGridViewTextBoxColumn
+            // 
+            this.perYasDataGridViewTextBoxColumn.DataPropertyName = "PerYas";
+            this.perYasDataGridViewTextBoxColumn.HeaderText = "PerYas";
+            this.perYasDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.perYasDataGridViewTextBoxColumn.Name = "perYasDataGridViewTextBoxColumn";
+            this.perYasDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // perTCDataGridViewTextBoxColumn
+            // 
+            this.perTCDataGridViewTextBoxColumn.DataPropertyName = "PerTC";
+            this.perTCDataGridViewTextBoxColumn.HeaderText = "PerTC";
+            this.perTCDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.perTCDataGridViewTextBoxColumn.Name = "perTCDataGridViewTextBoxColumn";
+            this.perTCDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // perSubeDataGridViewTextBoxColumn
+            // 
+            this.perSubeDataGridViewTextBoxColumn.DataPropertyName = "PerSube";
+            this.perSubeDataGridViewTextBoxColumn.HeaderText = "PerSube";
+            this.perSubeDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.perSubeDataGridViewTextBoxColumn.Name = "perSubeDataGridViewTextBoxColumn";
+            this.perSubeDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // perMaasDataGridViewTextBoxColumn
+            // 
+            this.perMaasDataGridViewTextBoxColumn.DataPropertyName = "PerMaas";
+            this.perMaasDataGridViewTextBoxColumn.HeaderText = "PerMaas";
+            this.perMaasDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.perMaasDataGridViewTextBoxColumn.Name = "perMaasDataGridViewTextBoxColumn";
+            this.perMaasDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // perMedeniHalDataGridViewCheckBoxColumn
+            // 
+            this.perMedeniHalDataGridViewCheckBoxColumn.DataPropertyName = "PerMedeniHal";
+            this.perMedeniHalDataGridViewCheckBoxColumn.HeaderText = "PerMedeniHal";
+            this.perMedeniHalDataGridViewCheckBoxColumn.MinimumWidth = 8;
+            this.perMedeniHalDataGridViewCheckBoxColumn.Name = "perMedeniHalDataGridViewCheckBoxColumn";
+            this.perMedeniHalDataGridViewCheckBoxColumn.Width = 150;
+            // 
+            // perPozisyonDataGridViewTextBoxColumn
+            // 
+            this.perPozisyonDataGridViewTextBoxColumn.DataPropertyName = "PerPozisyon";
+            this.perPozisyonDataGridViewTextBoxColumn.HeaderText = "PerPozisyon";
+            this.perPozisyonDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.perPozisyonDataGridViewTextBoxColumn.Name = "perPozisyonDataGridViewTextBoxColumn";
+            this.perPozisyonDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // perGirisTarihiDataGridViewTextBoxColumn
+            // 
+            this.perGirisTarihiDataGridViewTextBoxColumn.DataPropertyName = "PerGirisTarihi";
+            this.perGirisTarihiDataGridViewTextBoxColumn.HeaderText = "PerGirisTarihi";
+            this.perGirisTarihiDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.perGirisTarihiDataGridViewTextBoxColumn.Name = "perGirisTarihiDataGridViewTextBoxColumn";
+            this.perGirisTarihiDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // perCalismaDurumuDataGridViewTextBoxColumn
+            // 
+            this.perCalismaDurumuDataGridViewTextBoxColumn.DataPropertyName = "PerCalismaDurumu";
+            this.perCalismaDurumuDataGridViewTextBoxColumn.HeaderText = "PerCalismaDurumu";
+            this.perCalismaDurumuDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.perCalismaDurumuDataGridViewTextBoxColumn.Name = "perCalismaDurumuDataGridViewTextBoxColumn";
+            this.perCalismaDurumuDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // perTelefonDataGridViewTextBoxColumn
+            // 
+            this.perTelefonDataGridViewTextBoxColumn.DataPropertyName = "PerTelefon";
+            this.perTelefonDataGridViewTextBoxColumn.HeaderText = "PerTelefon";
+            this.perTelefonDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.perTelefonDataGridViewTextBoxColumn.Name = "perTelefonDataGridViewTextBoxColumn";
+            this.perTelefonDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // perDogumTarihDataGridViewTextBoxColumn
+            // 
+            this.perDogumTarihDataGridViewTextBoxColumn.DataPropertyName = "PerDogumTarih";
+            this.perDogumTarihDataGridViewTextBoxColumn.HeaderText = "PerDogumTarih";
+            this.perDogumTarihDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.perDogumTarihDataGridViewTextBoxColumn.Name = "perDogumTarihDataGridViewTextBoxColumn";
+            this.perDogumTarihDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // perCinsiyetDataGridViewTextBoxColumn
+            // 
+            this.perCinsiyetDataGridViewTextBoxColumn.DataPropertyName = "PerCinsiyet";
+            this.perCinsiyetDataGridViewTextBoxColumn.HeaderText = "PerCinsiyet";
+            this.perCinsiyetDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.perCinsiyetDataGridViewTextBoxColumn.Name = "perCinsiyetDataGridViewTextBoxColumn";
+            this.perCinsiyetDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // perDepartmanDataGridViewTextBoxColumn
+            // 
+            this.perDepartmanDataGridViewTextBoxColumn.DataPropertyName = "PerDepartman";
+            this.perDepartmanDataGridViewTextBoxColumn.HeaderText = "PerDepartman";
+            this.perDepartmanDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.perDepartmanDataGridViewTextBoxColumn.Name = "perDepartmanDataGridViewTextBoxColumn";
+            this.perDepartmanDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // perMailDataGridViewTextBoxColumn
+            // 
+            this.perMailDataGridViewTextBoxColumn.DataPropertyName = "PerMail";
+            this.perMailDataGridViewTextBoxColumn.HeaderText = "PerMail";
+            this.perMailDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.perMailDataGridViewTextBoxColumn.Name = "perMailDataGridViewTextBoxColumn";
+            this.perMailDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // perAdresDataGridViewTextBoxColumn
+            // 
+            this.perAdresDataGridViewTextBoxColumn.DataPropertyName = "PerAdres";
+            this.perAdresDataGridViewTextBoxColumn.HeaderText = "PerAdres";
+            this.perAdresDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.perAdresDataGridViewTextBoxColumn.Name = "perAdresDataGridViewTextBoxColumn";
+            this.perAdresDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // perSgkDataGridViewTextBoxColumn
+            // 
+            this.perSgkDataGridViewTextBoxColumn.DataPropertyName = "PerSgk";
+            this.perSgkDataGridViewTextBoxColumn.HeaderText = "PerSgk";
+            this.perSgkDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.perSgkDataGridViewTextBoxColumn.Name = "perSgkDataGridViewTextBoxColumn";
+            this.perSgkDataGridViewTextBoxColumn.Width = 150;
             // 
             // MainForm
             // 
@@ -568,11 +772,14 @@ namespace PersonelTakipSistemi
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainForm";
             this.Text = "Personel Takip Sistemi";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.groupGiris.ResumeLayout(false);
             this.groupGiris.PerformLayout();
             this.groupIslem.ResumeLayout(false);
             this.groupKayıt.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personelTakipDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblPersonBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -625,6 +832,27 @@ namespace PersonelTakipSistemi
         private Button btnListele;
         private GroupBox groupKayıt;
         private DataGridView dataGridView1;
+        private PersonelTakipDataSet personelTakipDataSet;
+        private BindingSource tblPersonBindingSource;
+        private PersonelTakipDataSetTableAdapters.TblPersonTableAdapter tblPersonTableAdapter;
+        private DataGridViewTextBoxColumn ıDDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn perAdDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn perSoyadDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn perYasDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn perTCDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn perSubeDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn perMaasDataGridViewTextBoxColumn;
+        private DataGridViewCheckBoxColumn perMedeniHalDataGridViewCheckBoxColumn;
+        private DataGridViewTextBoxColumn perPozisyonDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn perGirisTarihiDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn perCalismaDurumuDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn perTelefonDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn perDogumTarihDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn perCinsiyetDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn perDepartmanDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn perMailDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn perAdresDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn perSgkDataGridViewTextBoxColumn;
     }
 }
 
