@@ -20,10 +20,10 @@ namespace PersonelTakipSistemi
         SqlConnection sqlConnection = new SqlConnection("Data Source=LAPTOP-2K70O5J\\SQLEXPRESS;Initial Catalog=PersonelTakip;Integrated Security=True");
         private void MainForm_Load(object sender, EventArgs e)
         {
-            
+
             // TODO: Bu kod satırı 'personelTakipDataSet.TblPerson' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.
             this.tblPersonTableAdapter.Fill(this.personelTakipDataSet.TblPerson);
-            
+
         }
 
         private void btnListele_Click(object sender, EventArgs e)
@@ -54,20 +54,20 @@ namespace PersonelTakipSistemi
             sqlCommand.Parameters.AddWithValue("@p8", txtPoz.Text);
             sqlCommand.Parameters.AddWithValue("@p9", dtGirisTarih.Value);
             sqlCommand.Parameters.AddWithValue("@p10", txtIs.Text);
-            sqlCommand.Parameters.AddWithValue("@p11",txtTel.Text);
-            sqlCommand.Parameters.AddWithValue("@p12",dtDogumTarih.Value);
-            sqlCommand.Parameters.AddWithValue("@p13",txtCinsiyet.Text);
-            sqlCommand.Parameters.AddWithValue("@p14",txtDep.Text);
-            sqlCommand.Parameters.AddWithValue("@p15",txtMail.Text);
-            sqlCommand.Parameters.AddWithValue("@p16",txtAdres.Text);
-            sqlCommand.Parameters.AddWithValue("@p17",txtSgk.Text);
+            sqlCommand.Parameters.AddWithValue("@p11", txtTel.Text);
+            sqlCommand.Parameters.AddWithValue("@p12", dtDogumTarih.Value);
+            sqlCommand.Parameters.AddWithValue("@p13", txtCinsiyet.Text);
+            sqlCommand.Parameters.AddWithValue("@p14", txtDep.Text);
+            sqlCommand.Parameters.AddWithValue("@p15", txtMail.Text);
+            sqlCommand.Parameters.AddWithValue("@p16", txtAdres.Text);
+            sqlCommand.Parameters.AddWithValue("@p17", txtSgk.Text);
             sqlCommand.ExecuteNonQuery();
 
-            MessageBox.Show("Personel Kaydetme Başarılı","Bilgilendirme",MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            MessageBox.Show("Personel Kaydetme Başarılı", "Bilgilendirme", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
             sqlConnection.Close();
 
-            
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -88,7 +88,63 @@ namespace PersonelTakipSistemi
             }
             else
             {
-                radioButton2.Checked = true; }
+                radioButton2.Checked = true; 
             }
+
+            txtPoz.Text = dataGridView1.Rows[index].Cells[8].Value.ToString();
+
+            DateTime date = dtGirisTarih.Value;
+
+
+            date = (DateTime)dataGridView1.Rows[index].Cells[9].Value;
+
+            txtIs.Text = dataGridView1.Rows[index].Cells[10].Value.ToString();
+            txtTel.Text = dataGridView1.Rows[index].Cells[11].Value.ToString();
+
+            DateTime date1 = dtDogumTarih.Value;
+
+            date1 = (DateTime)dataGridView1.Rows[index].Cells[12].Value;
+
+            txtCinsiyet.Text = dataGridView1.Rows[index].Cells[13].Value.ToString();
+            txtDep.Text = dataGridView1.Rows[index].Cells[14].Value.ToString();
+            txtMail.Text = dataGridView1.Rows[index].Cells[15].Value.ToString();
+            txtAdres.Text = dataGridView1.Rows[index].Cells[16].Value.ToString();
+            txtSgk.Text = dataGridView1.Rows[index].Cells[17].Value.ToString();
+
         }
+
+        private void btnGuncelle_Click(object sender, EventArgs e)
+        {
+            sqlConnection.Open();
+
+            SqlCommand sqlCommand = new SqlCommand("PersonelGuncelle", sqlConnection);
+
+            bool medeniHal = radioButton1.Checked;
+
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("@id",txtId.Text);
+            sqlCommand.Parameters.AddWithValue("@p1", txtIsim.Text);
+            sqlCommand.Parameters.AddWithValue("@p2", txtSoyisim.Text);
+            sqlCommand.Parameters.AddWithValue("@p3", txtYas.Text);
+            sqlCommand.Parameters.AddWithValue("@p4", txtKimlik.Text);
+            sqlCommand.Parameters.AddWithValue("@p5", txtSube.Text);
+            sqlCommand.Parameters.AddWithValue("@p6", txtMaas.Text);
+            sqlCommand.Parameters.AddWithValue("@p7", medeniHal);
+            sqlCommand.Parameters.AddWithValue("@p8", txtPoz.Text);
+            sqlCommand.Parameters.AddWithValue("@p9", dtGirisTarih.Value);
+            sqlCommand.Parameters.AddWithValue("@p10", txtIs.Text);
+            sqlCommand.Parameters.AddWithValue("@p11", txtTel.Text);
+            sqlCommand.Parameters.AddWithValue("@p12", dtDogumTarih.Value);
+            sqlCommand.Parameters.AddWithValue("@p13", txtCinsiyet.Text);
+            sqlCommand.Parameters.AddWithValue("@p14", txtDep.Text);
+            sqlCommand.Parameters.AddWithValue("@p15", txtMail.Text);
+            sqlCommand.Parameters.AddWithValue("@p16", txtAdres.Text);
+            sqlCommand.Parameters.AddWithValue("@p17", txtSgk.Text);
+            sqlCommand.ExecuteNonQuery();
+
+            MessageBox.Show("Personel Güncelleme İşleme Başarılı","Bilgilendirme",MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+            sqlConnection.Close();
+        }
+    }   
 }

@@ -33,6 +33,7 @@ namespace PersonelTakipSistemi
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.groupGiris = new System.Windows.Forms.GroupBox();
             this.txtAdres = new System.Windows.Forms.RichTextBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -100,16 +101,21 @@ namespace PersonelTakipSistemi
             this.tblPersonBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.personelTakipDataSet = new PersonelTakipSistemi.PersonelTakipDataSet();
             this.tblPersonTableAdapter = new PersonelTakipSistemi.PersonelTakipDataSetTableAdapters.TblPersonTableAdapter();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupGiris.SuspendLayout();
             this.groupIslem.SuspendLayout();
             this.groupKayıt.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblPersonBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personelTakipDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // groupGiris
             // 
+            this.groupGiris.BackColor = System.Drawing.SystemColors.Control;
             this.groupGiris.Controls.Add(this.txtAdres);
             this.groupGiris.Controls.Add(this.radioButton2);
             this.groupGiris.Controls.Add(this.radioButton1);
@@ -191,7 +197,7 @@ namespace PersonelTakipSistemi
             // 
             // dtDogumTarih
             // 
-            this.dtDogumTarih.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtDogumTarih.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtDogumTarih.Location = new System.Drawing.Point(384, 170);
             this.dtDogumTarih.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtDogumTarih.MaxDate = new System.DateTime(2023, 7, 23, 1, 44, 22, 0);
@@ -205,7 +211,7 @@ namespace PersonelTakipSistemi
             this.dtGirisTarih.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtGirisTarih.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtGirisTarih.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtGirisTarih.Location = new System.Drawing.Point(383, 39);
             this.dtGirisTarih.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtGirisTarih.MaxDate = new System.DateTime(2023, 7, 23, 1, 44, 5, 0);
@@ -493,16 +499,17 @@ namespace PersonelTakipSistemi
             // 
             // groupIslem
             // 
+            this.groupIslem.BackColor = System.Drawing.Color.Transparent;
             this.groupIslem.Controls.Add(this.btnTemizle);
             this.groupIslem.Controls.Add(this.btnSil);
             this.groupIslem.Controls.Add(this.btnGuncelle);
             this.groupIslem.Controls.Add(this.btnKaydet);
             this.groupIslem.Controls.Add(this.btnListele);
-            this.groupIslem.Location = new System.Drawing.Point(834, 18);
+            this.groupIslem.Location = new System.Drawing.Point(930, 18);
             this.groupIslem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupIslem.Name = "groupIslem";
             this.groupIslem.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupIslem.Size = new System.Drawing.Size(526, 487);
+            this.groupIslem.Size = new System.Drawing.Size(430, 487);
             this.groupIslem.TabIndex = 1;
             this.groupIslem.TabStop = false;
             this.groupIslem.Text = "İşlemler";
@@ -512,7 +519,7 @@ namespace PersonelTakipSistemi
             this.btnTemizle.Location = new System.Drawing.Point(5, 398);
             this.btnTemizle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTemizle.Name = "btnTemizle";
-            this.btnTemizle.Size = new System.Drawing.Size(496, 66);
+            this.btnTemizle.Size = new System.Drawing.Size(422, 66);
             this.btnTemizle.TabIndex = 4;
             this.btnTemizle.Text = "Temizle";
             this.btnTemizle.UseVisualStyleBackColor = true;
@@ -522,7 +529,7 @@ namespace PersonelTakipSistemi
             this.btnSil.Location = new System.Drawing.Point(5, 305);
             this.btnSil.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSil.Name = "btnSil";
-            this.btnSil.Size = new System.Drawing.Size(496, 66);
+            this.btnSil.Size = new System.Drawing.Size(422, 66);
             this.btnSil.TabIndex = 3;
             this.btnSil.Text = "Personel Kayıt Sil";
             this.btnSil.UseVisualStyleBackColor = true;
@@ -532,17 +539,18 @@ namespace PersonelTakipSistemi
             this.btnGuncelle.Location = new System.Drawing.Point(5, 212);
             this.btnGuncelle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGuncelle.Name = "btnGuncelle";
-            this.btnGuncelle.Size = new System.Drawing.Size(496, 66);
+            this.btnGuncelle.Size = new System.Drawing.Size(422, 66);
             this.btnGuncelle.TabIndex = 2;
             this.btnGuncelle.Text = "Personel Bilgi Güncelle";
             this.btnGuncelle.UseVisualStyleBackColor = true;
+            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
             // 
             // btnKaydet
             // 
             this.btnKaydet.Location = new System.Drawing.Point(5, 120);
             this.btnKaydet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnKaydet.Name = "btnKaydet";
-            this.btnKaydet.Size = new System.Drawing.Size(496, 66);
+            this.btnKaydet.Size = new System.Drawing.Size(422, 66);
             this.btnKaydet.TabIndex = 1;
             this.btnKaydet.Text = "Personel Kaydet";
             this.btnKaydet.UseVisualStyleBackColor = true;
@@ -553,7 +561,7 @@ namespace PersonelTakipSistemi
             this.btnListele.Location = new System.Drawing.Point(5, 36);
             this.btnListele.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnListele.Name = "btnListele";
-            this.btnListele.Size = new System.Drawing.Size(496, 66);
+            this.btnListele.Size = new System.Drawing.Size(422, 66);
             this.btnListele.TabIndex = 0;
             this.btnListele.Text = "Personel Listele";
             this.btnListele.UseVisualStyleBackColor = true;
@@ -621,6 +629,7 @@ namespace PersonelTakipSistemi
             this.perAdDataGridViewTextBoxColumn.HeaderText = "PerAd";
             this.perAdDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.perAdDataGridViewTextBoxColumn.Name = "perAdDataGridViewTextBoxColumn";
+            this.perAdDataGridViewTextBoxColumn.ReadOnly = true;
             this.perAdDataGridViewTextBoxColumn.Width = 150;
             // 
             // perSoyadDataGridViewTextBoxColumn
@@ -629,6 +638,7 @@ namespace PersonelTakipSistemi
             this.perSoyadDataGridViewTextBoxColumn.HeaderText = "PerSoyad";
             this.perSoyadDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.perSoyadDataGridViewTextBoxColumn.Name = "perSoyadDataGridViewTextBoxColumn";
+            this.perSoyadDataGridViewTextBoxColumn.ReadOnly = true;
             this.perSoyadDataGridViewTextBoxColumn.Width = 150;
             // 
             // perYasDataGridViewTextBoxColumn
@@ -637,6 +647,7 @@ namespace PersonelTakipSistemi
             this.perYasDataGridViewTextBoxColumn.HeaderText = "PerYas";
             this.perYasDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.perYasDataGridViewTextBoxColumn.Name = "perYasDataGridViewTextBoxColumn";
+            this.perYasDataGridViewTextBoxColumn.ReadOnly = true;
             this.perYasDataGridViewTextBoxColumn.Width = 150;
             // 
             // perTCDataGridViewTextBoxColumn
@@ -645,6 +656,7 @@ namespace PersonelTakipSistemi
             this.perTCDataGridViewTextBoxColumn.HeaderText = "PerTC";
             this.perTCDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.perTCDataGridViewTextBoxColumn.Name = "perTCDataGridViewTextBoxColumn";
+            this.perTCDataGridViewTextBoxColumn.ReadOnly = true;
             this.perTCDataGridViewTextBoxColumn.Width = 150;
             // 
             // perSubeDataGridViewTextBoxColumn
@@ -653,6 +665,7 @@ namespace PersonelTakipSistemi
             this.perSubeDataGridViewTextBoxColumn.HeaderText = "PerSube";
             this.perSubeDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.perSubeDataGridViewTextBoxColumn.Name = "perSubeDataGridViewTextBoxColumn";
+            this.perSubeDataGridViewTextBoxColumn.ReadOnly = true;
             this.perSubeDataGridViewTextBoxColumn.Width = 150;
             // 
             // perMaasDataGridViewTextBoxColumn
@@ -661,6 +674,7 @@ namespace PersonelTakipSistemi
             this.perMaasDataGridViewTextBoxColumn.HeaderText = "PerMaas";
             this.perMaasDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.perMaasDataGridViewTextBoxColumn.Name = "perMaasDataGridViewTextBoxColumn";
+            this.perMaasDataGridViewTextBoxColumn.ReadOnly = true;
             this.perMaasDataGridViewTextBoxColumn.Width = 150;
             // 
             // perMedeniHalDataGridViewCheckBoxColumn
@@ -669,6 +683,7 @@ namespace PersonelTakipSistemi
             this.perMedeniHalDataGridViewCheckBoxColumn.HeaderText = "PerMedeniHal";
             this.perMedeniHalDataGridViewCheckBoxColumn.MinimumWidth = 8;
             this.perMedeniHalDataGridViewCheckBoxColumn.Name = "perMedeniHalDataGridViewCheckBoxColumn";
+            this.perMedeniHalDataGridViewCheckBoxColumn.ReadOnly = true;
             this.perMedeniHalDataGridViewCheckBoxColumn.Width = 150;
             // 
             // perPozisyonDataGridViewTextBoxColumn
@@ -677,6 +692,7 @@ namespace PersonelTakipSistemi
             this.perPozisyonDataGridViewTextBoxColumn.HeaderText = "PerPozisyon";
             this.perPozisyonDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.perPozisyonDataGridViewTextBoxColumn.Name = "perPozisyonDataGridViewTextBoxColumn";
+            this.perPozisyonDataGridViewTextBoxColumn.ReadOnly = true;
             this.perPozisyonDataGridViewTextBoxColumn.Width = 150;
             // 
             // perGirisTarihiDataGridViewTextBoxColumn
@@ -685,6 +701,7 @@ namespace PersonelTakipSistemi
             this.perGirisTarihiDataGridViewTextBoxColumn.HeaderText = "PerGirisTarihi";
             this.perGirisTarihiDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.perGirisTarihiDataGridViewTextBoxColumn.Name = "perGirisTarihiDataGridViewTextBoxColumn";
+            this.perGirisTarihiDataGridViewTextBoxColumn.ReadOnly = true;
             this.perGirisTarihiDataGridViewTextBoxColumn.Width = 150;
             // 
             // perCalismaDurumuDataGridViewTextBoxColumn
@@ -693,6 +710,7 @@ namespace PersonelTakipSistemi
             this.perCalismaDurumuDataGridViewTextBoxColumn.HeaderText = "PerCalismaDurumu";
             this.perCalismaDurumuDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.perCalismaDurumuDataGridViewTextBoxColumn.Name = "perCalismaDurumuDataGridViewTextBoxColumn";
+            this.perCalismaDurumuDataGridViewTextBoxColumn.ReadOnly = true;
             this.perCalismaDurumuDataGridViewTextBoxColumn.Width = 150;
             // 
             // perTelefonDataGridViewTextBoxColumn
@@ -701,6 +719,7 @@ namespace PersonelTakipSistemi
             this.perTelefonDataGridViewTextBoxColumn.HeaderText = "PerTelefon";
             this.perTelefonDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.perTelefonDataGridViewTextBoxColumn.Name = "perTelefonDataGridViewTextBoxColumn";
+            this.perTelefonDataGridViewTextBoxColumn.ReadOnly = true;
             this.perTelefonDataGridViewTextBoxColumn.Width = 150;
             // 
             // perDogumTarihDataGridViewTextBoxColumn
@@ -709,6 +728,7 @@ namespace PersonelTakipSistemi
             this.perDogumTarihDataGridViewTextBoxColumn.HeaderText = "PerDogumTarih";
             this.perDogumTarihDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.perDogumTarihDataGridViewTextBoxColumn.Name = "perDogumTarihDataGridViewTextBoxColumn";
+            this.perDogumTarihDataGridViewTextBoxColumn.ReadOnly = true;
             this.perDogumTarihDataGridViewTextBoxColumn.Width = 150;
             // 
             // perCinsiyetDataGridViewTextBoxColumn
@@ -717,6 +737,7 @@ namespace PersonelTakipSistemi
             this.perCinsiyetDataGridViewTextBoxColumn.HeaderText = "PerCinsiyet";
             this.perCinsiyetDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.perCinsiyetDataGridViewTextBoxColumn.Name = "perCinsiyetDataGridViewTextBoxColumn";
+            this.perCinsiyetDataGridViewTextBoxColumn.ReadOnly = true;
             this.perCinsiyetDataGridViewTextBoxColumn.Width = 150;
             // 
             // perDepartmanDataGridViewTextBoxColumn
@@ -725,6 +746,7 @@ namespace PersonelTakipSistemi
             this.perDepartmanDataGridViewTextBoxColumn.HeaderText = "PerDepartman";
             this.perDepartmanDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.perDepartmanDataGridViewTextBoxColumn.Name = "perDepartmanDataGridViewTextBoxColumn";
+            this.perDepartmanDataGridViewTextBoxColumn.ReadOnly = true;
             this.perDepartmanDataGridViewTextBoxColumn.Width = 150;
             // 
             // perMailDataGridViewTextBoxColumn
@@ -733,6 +755,7 @@ namespace PersonelTakipSistemi
             this.perMailDataGridViewTextBoxColumn.HeaderText = "PerMail";
             this.perMailDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.perMailDataGridViewTextBoxColumn.Name = "perMailDataGridViewTextBoxColumn";
+            this.perMailDataGridViewTextBoxColumn.ReadOnly = true;
             this.perMailDataGridViewTextBoxColumn.Width = 150;
             // 
             // perAdresDataGridViewTextBoxColumn
@@ -741,6 +764,7 @@ namespace PersonelTakipSistemi
             this.perAdresDataGridViewTextBoxColumn.HeaderText = "PerAdres";
             this.perAdresDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.perAdresDataGridViewTextBoxColumn.Name = "perAdresDataGridViewTextBoxColumn";
+            this.perAdresDataGridViewTextBoxColumn.ReadOnly = true;
             this.perAdresDataGridViewTextBoxColumn.Width = 150;
             // 
             // perSgkDataGridViewTextBoxColumn
@@ -749,6 +773,7 @@ namespace PersonelTakipSistemi
             this.perSgkDataGridViewTextBoxColumn.HeaderText = "PerSgk";
             this.perSgkDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.perSgkDataGridViewTextBoxColumn.Name = "perSgkDataGridViewTextBoxColumn";
+            this.perSgkDataGridViewTextBoxColumn.ReadOnly = true;
             this.perSgkDataGridViewTextBoxColumn.Width = 150;
             // 
             // tblPersonBindingSource
@@ -765,14 +790,41 @@ namespace PersonelTakipSistemi
             // 
             this.tblPersonTableAdapter.ClearBeforeFill = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(611, 108);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(313, 281);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(611, 377);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(313, 65);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 4;
+            this.pictureBox2.TabStop = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1371, 752);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupKayıt);
             this.Controls.Add(this.groupIslem);
             this.Controls.Add(this.groupGiris);
+            this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainForm";
             this.Text = "Personel Takip Sistemi";
@@ -784,6 +836,8 @@ namespace PersonelTakipSistemi
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblPersonBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.personelTakipDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -857,6 +911,8 @@ namespace PersonelTakipSistemi
         private DataGridViewTextBoxColumn perMailDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn perAdresDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn perSgkDataGridViewTextBoxColumn;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
     }
 }
 
