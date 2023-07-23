@@ -41,7 +41,7 @@ namespace PersonelTakipSistemi
             this.dtGirisTarih = new System.Windows.Forms.DateTimePicker();
             this.txtDep = new System.Windows.Forms.TextBox();
             this.txtPoz = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtKimlik = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -64,12 +64,12 @@ namespace PersonelTakipSistemi
             this.label18 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtCinsiyet = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.txtSoyisim = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupIslem = new System.Windows.Forms.GroupBox();
             this.btnTemizle = new System.Windows.Forms.Button();
@@ -79,9 +79,6 @@ namespace PersonelTakipSistemi
             this.btnListele = new System.Windows.Forms.Button();
             this.groupKayıt = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.personelTakipDataSet = new PersonelTakipSistemi.PersonelTakipDataSet();
-            this.tblPersonBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tblPersonTableAdapter = new PersonelTakipSistemi.PersonelTakipDataSetTableAdapters.TblPersonTableAdapter();
             this.ıDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.perAdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.perSoyadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -100,12 +97,15 @@ namespace PersonelTakipSistemi
             this.perMailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.perAdresDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.perSgkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tblPersonBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.personelTakipDataSet = new PersonelTakipSistemi.PersonelTakipDataSet();
+            this.tblPersonTableAdapter = new PersonelTakipSistemi.PersonelTakipDataSetTableAdapters.TblPersonTableAdapter();
             this.groupGiris.SuspendLayout();
             this.groupIslem.SuspendLayout();
             this.groupKayıt.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personelTakipDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblPersonBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personelTakipDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // groupGiris
@@ -117,7 +117,7 @@ namespace PersonelTakipSistemi
             this.groupGiris.Controls.Add(this.dtGirisTarih);
             this.groupGiris.Controls.Add(this.txtDep);
             this.groupGiris.Controls.Add(this.txtPoz);
-            this.groupGiris.Controls.Add(this.textBox3);
+            this.groupGiris.Controls.Add(this.txtKimlik);
             this.groupGiris.Controls.Add(this.label13);
             this.groupGiris.Controls.Add(this.label9);
             this.groupGiris.Controls.Add(this.label14);
@@ -140,12 +140,12 @@ namespace PersonelTakipSistemi
             this.groupGiris.Controls.Add(this.label18);
             this.groupGiris.Controls.Add(this.label10);
             this.groupGiris.Controls.Add(this.label4);
-            this.groupGiris.Controls.Add(this.textBox2);
+            this.groupGiris.Controls.Add(this.txtCinsiyet);
             this.groupGiris.Controls.Add(this.label6);
             this.groupGiris.Controls.Add(this.label15);
             this.groupGiris.Controls.Add(this.txtSoyisim);
             this.groupGiris.Controls.Add(this.label2);
-            this.groupGiris.Controls.Add(this.textBox1);
+            this.groupGiris.Controls.Add(this.txtId);
             this.groupGiris.Controls.Add(this.label1);
             this.groupGiris.Location = new System.Drawing.Point(7, 7);
             this.groupGiris.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -197,7 +197,7 @@ namespace PersonelTakipSistemi
             this.dtDogumTarih.MaxDate = new System.DateTime(2023, 7, 23, 1, 44, 22, 0);
             this.dtDogumTarih.Name = "dtDogumTarih";
             this.dtDogumTarih.Size = new System.Drawing.Size(182, 26);
-            this.dtDogumTarih.TabIndex = 6;
+            this.dtDogumTarih.TabIndex = 10;
             this.dtDogumTarih.Value = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
             // 
             // dtGirisTarih
@@ -211,7 +211,7 @@ namespace PersonelTakipSistemi
             this.dtGirisTarih.MaxDate = new System.DateTime(2023, 7, 23, 1, 44, 5, 0);
             this.dtGirisTarih.Name = "dtGirisTarih";
             this.dtGirisTarih.Size = new System.Drawing.Size(183, 26);
-            this.dtGirisTarih.TabIndex = 1;
+            this.dtGirisTarih.TabIndex = 7;
             this.dtGirisTarih.Value = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
             // 
             // txtDep
@@ -220,7 +220,7 @@ namespace PersonelTakipSistemi
             this.txtDep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDep.Name = "txtDep";
             this.txtDep.Size = new System.Drawing.Size(183, 26);
-            this.txtDep.TabIndex = 12;
+            this.txtDep.TabIndex = 13;
             // 
             // txtPoz
             // 
@@ -228,16 +228,16 @@ namespace PersonelTakipSistemi
             this.txtPoz.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPoz.Name = "txtPoz";
             this.txtPoz.Size = new System.Drawing.Size(183, 26);
-            this.txtPoz.TabIndex = 8;
+            this.txtPoz.TabIndex = 11;
             // 
-            // textBox3
+            // txtKimlik
             // 
-            this.textBox3.Location = new System.Drawing.Point(383, 86);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox3.MaxLength = 11;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(183, 26);
-            this.textBox3.TabIndex = 2;
+            this.txtKimlik.Location = new System.Drawing.Point(383, 86);
+            this.txtKimlik.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtKimlik.MaxLength = 11;
+            this.txtKimlik.Name = "txtKimlik";
+            this.txtKimlik.Size = new System.Drawing.Size(183, 26);
+            this.txtKimlik.TabIndex = 8;
             // 
             // label13
             // 
@@ -281,7 +281,7 @@ namespace PersonelTakipSistemi
             this.txtTel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTel.Name = "txtTel";
             this.txtTel.Size = new System.Drawing.Size(168, 26);
-            this.txtTel.TabIndex = 11;
+            this.txtTel.TabIndex = 5;
             // 
             // txtSgk
             // 
@@ -297,7 +297,7 @@ namespace PersonelTakipSistemi
             this.txtSube.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSube.Name = "txtSube";
             this.txtSube.Size = new System.Drawing.Size(168, 26);
-            this.txtSube.TabIndex = 7;
+            this.txtSube.TabIndex = 3;
             // 
             // txtIs
             // 
@@ -305,7 +305,7 @@ namespace PersonelTakipSistemi
             this.txtIs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtIs.Name = "txtIs";
             this.txtIs.Size = new System.Drawing.Size(183, 26);
-            this.txtIs.TabIndex = 10;
+            this.txtIs.TabIndex = 12;
             // 
             // label12
             // 
@@ -349,7 +349,7 @@ namespace PersonelTakipSistemi
             this.txtYas.MaxLength = 3;
             this.txtYas.Name = "txtYas";
             this.txtYas.Size = new System.Drawing.Size(183, 26);
-            this.txtYas.TabIndex = 4;
+            this.txtYas.TabIndex = 9;
             // 
             // label7
             // 
@@ -366,7 +366,7 @@ namespace PersonelTakipSistemi
             this.txtMail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(168, 26);
-            this.txtMail.TabIndex = 13;
+            this.txtMail.TabIndex = 6;
             // 
             // label3
             // 
@@ -383,7 +383,7 @@ namespace PersonelTakipSistemi
             this.txtMaas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMaas.Name = "txtMaas";
             this.txtMaas.Size = new System.Drawing.Size(168, 26);
-            this.txtMaas.TabIndex = 9;
+            this.txtMaas.TabIndex = 4;
             // 
             // label17
             // 
@@ -430,13 +430,13 @@ namespace PersonelTakipSistemi
             this.label4.TabIndex = 0;
             this.label4.Text = "Yaş";
             // 
-            // textBox2
+            // txtCinsiyet
             // 
-            this.textBox2.Location = new System.Drawing.Point(80, 171);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(168, 26);
-            this.textBox2.TabIndex = 5;
+            this.txtCinsiyet.Location = new System.Drawing.Point(80, 171);
+            this.txtCinsiyet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCinsiyet.Name = "txtCinsiyet";
+            this.txtCinsiyet.Size = new System.Drawing.Size(168, 26);
+            this.txtCinsiyet.TabIndex = 2;
             // 
             // label6
             // 
@@ -462,7 +462,7 @@ namespace PersonelTakipSistemi
             this.txtSoyisim.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSoyisim.Name = "txtSoyisim";
             this.txtSoyisim.Size = new System.Drawing.Size(168, 26);
-            this.txtSoyisim.TabIndex = 3;
+            this.txtSoyisim.TabIndex = 1;
             // 
             // label2
             // 
@@ -473,14 +473,14 @@ namespace PersonelTakipSistemi
             this.label2.TabIndex = 0;
             this.label2.Text = "Soyisim";
             // 
-            // textBox1
+            // txtId
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(80, 39);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(168, 26);
-            this.textBox1.TabIndex = 1;
+            this.txtId.Enabled = false;
+            this.txtId.Location = new System.Drawing.Point(80, 39);
+            this.txtId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(168, 26);
+            this.txtId.TabIndex = 1;
             // 
             // label1
             // 
@@ -546,6 +546,7 @@ namespace PersonelTakipSistemi
             this.btnKaydet.TabIndex = 1;
             this.btnKaydet.Text = "Personel Kaydet";
             this.btnKaydet.UseVisualStyleBackColor = true;
+            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
             // 
             // btnListele
             // 
@@ -556,6 +557,7 @@ namespace PersonelTakipSistemi
             this.btnListele.TabIndex = 0;
             this.btnListele.Text = "Personel Listele";
             this.btnListele.UseVisualStyleBackColor = true;
+            this.btnListele.Click += new System.EventHandler(this.btnListele_Click);
             // 
             // groupKayıt
             // 
@@ -597,24 +599,12 @@ namespace PersonelTakipSistemi
             this.dataGridView1.Location = new System.Drawing.Point(3, 21);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 33;
             this.dataGridView1.Size = new System.Drawing.Size(1346, 203);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // personelTakipDataSet
-            // 
-            this.personelTakipDataSet.DataSetName = "PersonelTakipDataSet";
-            this.personelTakipDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tblPersonBindingSource
-            // 
-            this.tblPersonBindingSource.DataMember = "TblPerson";
-            this.tblPersonBindingSource.DataSource = this.personelTakipDataSet;
-            // 
-            // tblPersonTableAdapter
-            // 
-            this.tblPersonTableAdapter.ClearBeforeFill = true;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // ıDDataGridViewTextBoxColumn
             // 
@@ -761,6 +751,20 @@ namespace PersonelTakipSistemi
             this.perSgkDataGridViewTextBoxColumn.Name = "perSgkDataGridViewTextBoxColumn";
             this.perSgkDataGridViewTextBoxColumn.Width = 150;
             // 
+            // tblPersonBindingSource
+            // 
+            this.tblPersonBindingSource.DataMember = "TblPerson";
+            this.tblPersonBindingSource.DataSource = this.personelTakipDataSet;
+            // 
+            // personelTakipDataSet
+            // 
+            this.personelTakipDataSet.DataSetName = "PersonelTakipDataSet";
+            this.personelTakipDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tblPersonTableAdapter
+            // 
+            this.tblPersonTableAdapter.ClearBeforeFill = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -778,8 +782,8 @@ namespace PersonelTakipSistemi
             this.groupIslem.ResumeLayout(false);
             this.groupKayıt.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personelTakipDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblPersonBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personelTakipDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -789,11 +793,11 @@ namespace PersonelTakipSistemi
         private GroupBox groupGiris;
         private TextBox txtSoyisim;
         private Label label2;
-        private TextBox textBox1;
+        private TextBox txtId;
         private Label label1;
         private TextBox txtIsim;
         private Label label3;
-        private TextBox textBox3;
+        private TextBox txtKimlik;
         private Label label5;
         private TextBox txtYas;
         private Label label4;
@@ -817,7 +821,7 @@ namespace PersonelTakipSistemi
         private Label label14;
         private DateTimePicker dtDogumTarih;
         private Label label16;
-        private TextBox textBox2;
+        private TextBox txtCinsiyet;
         private Label label15;
         private RadioButton radioButton2;
         private RadioButton radioButton1;
