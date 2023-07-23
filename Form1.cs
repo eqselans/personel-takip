@@ -35,41 +35,58 @@ namespace PersonelTakipSistemi
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
-
-
             sqlConnection.Open();
 
-            bool medeniHal = radioButton1.Checked;
+            if (txtIsim.Text == String.Empty|| txtSoyisim.Text == String.Empty || txtYas.Text == String.Empty ||
+                txtKimlik.Text == String.Empty || txtSube.Text == String.Empty || txtMaas.Text == String.Empty ||
+                txtPoz.Text == String.Empty || txtIs.Text == String.Empty || txtTel.Text == String.Empty ||
+                txtCinsiyet.Text == String.Empty || txtDep.Text == String.Empty || txtMail.Text == String.Empty ||
+                txtAdres.Text == String.Empty || txtSgk.Text == String.Empty
+                )
+            {
+                MessageBox.Show("Lütfen tüm kutucukları doldurunuz", "Uyarı", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+
+            }
+            else
+            { 
+
+                if (dtDogumTarih.Text == "" || dtGirisTarih.Text == "")
+                {
+                    MessageBox.Show("Lütfen tarih değerlerini giriniz", "Uyarı", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    bool medeniHal = radioButton1.Checked;
 
 
-            SqlCommand sqlCommand = new SqlCommand("sp_InsertPerson", sqlConnection);
+                    SqlCommand sqlCommand = new SqlCommand("sp_InsertPerson", sqlConnection);
 
-            sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
 
-            sqlCommand.Parameters.AddWithValue("@p1", txtIsim.Text);
-            sqlCommand.Parameters.AddWithValue("@p2", txtSoyisim.Text);
-            sqlCommand.Parameters.AddWithValue("@p3", txtYas.Text);
-            sqlCommand.Parameters.AddWithValue("@p4", txtKimlik.Text);
-            sqlCommand.Parameters.AddWithValue("@p5", txtSube.Text);
-            sqlCommand.Parameters.AddWithValue("@p6", txtMaas.Text);
-            sqlCommand.Parameters.AddWithValue("@p7", medeniHal);
-            sqlCommand.Parameters.AddWithValue("@p8", txtPoz.Text);
-            sqlCommand.Parameters.AddWithValue("@p9", dtGirisTarih.Value);
-            sqlCommand.Parameters.AddWithValue("@p10", txtIs.Text);
-            sqlCommand.Parameters.AddWithValue("@p11", txtTel.Text);
-            sqlCommand.Parameters.AddWithValue("@p12", dtDogumTarih.Value);
-            sqlCommand.Parameters.AddWithValue("@p13", txtCinsiyet.Text);
-            sqlCommand.Parameters.AddWithValue("@p14", txtDep.Text);
-            sqlCommand.Parameters.AddWithValue("@p15", txtMail.Text);
-            sqlCommand.Parameters.AddWithValue("@p16", txtAdres.Text);
-            sqlCommand.Parameters.AddWithValue("@p17", txtSgk.Text);
-            sqlCommand.ExecuteNonQuery();
+                    sqlCommand.Parameters.AddWithValue("@p1", txtIsim.Text);
+                    sqlCommand.Parameters.AddWithValue("@p2", txtSoyisim.Text);
+                    sqlCommand.Parameters.AddWithValue("@p3", txtYas.Text);
+                    sqlCommand.Parameters.AddWithValue("@p4", txtKimlik.Text);
+                    sqlCommand.Parameters.AddWithValue("@p5", txtSube.Text);
+                    sqlCommand.Parameters.AddWithValue("@p6", txtMaas.Text);
+                    sqlCommand.Parameters.AddWithValue("@p7", medeniHal);
+                    sqlCommand.Parameters.AddWithValue("@p8", txtPoz.Text);
+                    sqlCommand.Parameters.AddWithValue("@p9", dtGirisTarih.Value);
+                    sqlCommand.Parameters.AddWithValue("@p10", txtIs.Text);
+                    sqlCommand.Parameters.AddWithValue("@p11", txtTel.Text);
+                    sqlCommand.Parameters.AddWithValue("@p12", dtDogumTarih.Value);
+                    sqlCommand.Parameters.AddWithValue("@p13", txtCinsiyet.Text);
+                    sqlCommand.Parameters.AddWithValue("@p14", txtDep.Text);
+                    sqlCommand.Parameters.AddWithValue("@p15", txtMail.Text);
+                    sqlCommand.Parameters.AddWithValue("@p16", txtAdres.Text);
+                    sqlCommand.Parameters.AddWithValue("@p17", txtSgk.Text);
+                    sqlCommand.ExecuteNonQuery();
 
-            MessageBox.Show("Personel Kaydetme Başarılı", "Bilgilendirme", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-
+                    MessageBox.Show("Personel Kaydetme Başarılı", "Bilgilendirme", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    btnTemizle_Click(sender, e);
+                }
+            }
             sqlConnection.Close();
-
-
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -113,35 +130,58 @@ namespace PersonelTakipSistemi
 
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
+
             sqlConnection.Open();
 
-            SqlCommand sqlCommand = new SqlCommand("PersonelGuncelle", sqlConnection);
+            if (txtIsim.Text == String.Empty || txtSoyisim.Text == String.Empty || txtYas.Text == String.Empty ||
+                txtKimlik.Text == String.Empty || txtSube.Text == String.Empty || txtMaas.Text == String.Empty ||
+                txtPoz.Text == String.Empty || txtIs.Text == String.Empty || txtTel.Text == String.Empty ||
+                txtCinsiyet.Text == String.Empty || txtDep.Text == String.Empty || txtMail.Text == String.Empty ||
+                txtAdres.Text == String.Empty || txtSgk.Text == String.Empty
+                )
+            {
+                MessageBox.Show("Lütfen tüm kutucukları doldurunuz", "Uyarı", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
 
-            bool medeniHal = radioButton1.Checked;
+            }
+            else
+            {
 
-            sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.Parameters.AddWithValue("@id",txtId.Text);
-            sqlCommand.Parameters.AddWithValue("@p1", txtIsim.Text);
-            sqlCommand.Parameters.AddWithValue("@p2", txtSoyisim.Text);
-            sqlCommand.Parameters.AddWithValue("@p3", txtYas.Text);
-            sqlCommand.Parameters.AddWithValue("@p4", txtKimlik.Text);
-            sqlCommand.Parameters.AddWithValue("@p5", txtSube.Text);
-            sqlCommand.Parameters.AddWithValue("@p6", txtMaas.Text);
-            sqlCommand.Parameters.AddWithValue("@p7", medeniHal);
-            sqlCommand.Parameters.AddWithValue("@p8", txtPoz.Text);
-            sqlCommand.Parameters.AddWithValue("@p9", dtGirisTarih.Value);
-            sqlCommand.Parameters.AddWithValue("@p10", txtIs.Text);
-            sqlCommand.Parameters.AddWithValue("@p11", txtTel.Text);
-            sqlCommand.Parameters.AddWithValue("@p12", dtDogumTarih.Value);
-            sqlCommand.Parameters.AddWithValue("@p13", txtCinsiyet.Text);
-            sqlCommand.Parameters.AddWithValue("@p14", txtDep.Text);
-            sqlCommand.Parameters.AddWithValue("@p15", txtMail.Text);
-            sqlCommand.Parameters.AddWithValue("@p16", txtAdres.Text);
-            sqlCommand.Parameters.AddWithValue("@p17", txtSgk.Text);
-            sqlCommand.ExecuteNonQuery();
+                if (dtDogumTarih.Text == "" || dtGirisTarih.Text == "")
+                {
+                    MessageBox.Show("Lütfen tarih değerlerini giriniz", "Uyarı", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                }
+                else
+                {
 
-            MessageBox.Show("Personel Güncelleme İşleme Başarılı","Bilgilendirme",MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
+                    SqlCommand sqlCommand = new SqlCommand("PersonelGuncelle", sqlConnection);
+
+                    bool medeniHal = radioButton1.Checked;
+
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                    sqlCommand.Parameters.AddWithValue("@p1", txtIsim.Text);
+                    sqlCommand.Parameters.AddWithValue("@p2", txtSoyisim.Text);
+                    sqlCommand.Parameters.AddWithValue("@p3", txtYas.Text);
+                    sqlCommand.Parameters.AddWithValue("@p4", txtKimlik.Text);
+                    sqlCommand.Parameters.AddWithValue("@p5", txtSube.Text);
+                    sqlCommand.Parameters.AddWithValue("@p6", txtMaas.Text);
+                    sqlCommand.Parameters.AddWithValue("@p7", medeniHal);
+                    sqlCommand.Parameters.AddWithValue("@p8", txtPoz.Text);
+                    sqlCommand.Parameters.AddWithValue("@p9", dtGirisTarih.Value);
+                    sqlCommand.Parameters.AddWithValue("@p10", txtIs.Text);
+                    sqlCommand.Parameters.AddWithValue("@p11", txtTel.Text);
+                    sqlCommand.Parameters.AddWithValue("@p12", dtDogumTarih.Value);
+                    sqlCommand.Parameters.AddWithValue("@p13", txtCinsiyet.Text);
+                    sqlCommand.Parameters.AddWithValue("@p14", txtDep.Text);
+                    sqlCommand.Parameters.AddWithValue("@p15", txtMail.Text);
+                    sqlCommand.Parameters.AddWithValue("@p16", txtAdres.Text);
+                    sqlCommand.Parameters.AddWithValue("@p17", txtSgk.Text);
+                    sqlCommand.ExecuteNonQuery();
+
+                    MessageBox.Show("Personel Güncelleme İşleme Başarılı", "Bilgilendirme", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                }
+            }
             sqlConnection.Close();
         }
 
@@ -155,6 +195,7 @@ namespace PersonelTakipSistemi
             sqlCommand.ExecuteNonQuery();
 
             MessageBox.Show("Personel Kaydı Silindi","Bilgilendirme",MessageBoxButtons.OK, MessageBoxIcon.Information);
+            btnTemizle_Click(sender, e);
 
             sqlConnection.Close();
         }
@@ -188,8 +229,84 @@ namespace PersonelTakipSistemi
             txtSgk.Text = "";
         }
 
+        private void txtMaas_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
 
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
 
-       
+        private void txtTel_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtKimlik_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtYas_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtSgk_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }   
 }

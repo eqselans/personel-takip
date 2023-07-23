@@ -246,6 +246,7 @@ namespace PersonelTakipSistemi
             this.txtKimlik.Name = "txtKimlik";
             this.txtKimlik.Size = new System.Drawing.Size(183, 26);
             this.txtKimlik.TabIndex = 8;
+            this.txtKimlik.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKimlik_KeyPress);
             // 
             // label13
             // 
@@ -290,6 +291,7 @@ namespace PersonelTakipSistemi
             this.txtTel.Name = "txtTel";
             this.txtTel.Size = new System.Drawing.Size(168, 26);
             this.txtTel.TabIndex = 5;
+            this.txtTel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTel_KeyPress);
             // 
             // txtSgk
             // 
@@ -298,6 +300,7 @@ namespace PersonelTakipSistemi
             this.txtSgk.Name = "txtSgk";
             this.txtSgk.Size = new System.Drawing.Size(183, 26);
             this.txtSgk.TabIndex = 14;
+            this.txtSgk.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSgk_KeyPress);
             // 
             // txtSube
             // 
@@ -358,6 +361,7 @@ namespace PersonelTakipSistemi
             this.txtYas.Name = "txtYas";
             this.txtYas.Size = new System.Drawing.Size(183, 26);
             this.txtYas.TabIndex = 9;
+            this.txtYas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtYas_KeyPress);
             // 
             // label7
             // 
@@ -392,6 +396,7 @@ namespace PersonelTakipSistemi
             this.txtMaas.Name = "txtMaas";
             this.txtMaas.Size = new System.Drawing.Size(168, 26);
             this.txtMaas.TabIndex = 4;
+            this.txtMaas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaas_KeyPress);
             // 
             // label17
             // 
@@ -798,7 +803,7 @@ namespace PersonelTakipSistemi
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(611, 108);
+            this.pictureBox1.Location = new System.Drawing.Point(611, 97);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(313, 281);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -809,7 +814,7 @@ namespace PersonelTakipSistemi
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(611, 377);
+            this.pictureBox2.Location = new System.Drawing.Point(611, 373);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(313, 65);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -833,7 +838,9 @@ namespace PersonelTakipSistemi
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Personel Takip Sistemi";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.groupGiris.ResumeLayout(false);
             this.groupGiris.PerformLayout();
