@@ -200,7 +200,8 @@ namespace PersonelTakipSistemi
             this.dtDogumTarih.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtDogumTarih.Location = new System.Drawing.Point(384, 170);
             this.dtDogumTarih.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dtDogumTarih.MaxDate = new System.DateTime(2023, 7, 23, 1, 44, 22, 0);
+            this.dtDogumTarih.MaxDate = new System.DateTime(2038, 1, 1, 0, 0, 0, 0);
+            this.dtDogumTarih.MinDate = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
             this.dtDogumTarih.Name = "dtDogumTarih";
             this.dtDogumTarih.Size = new System.Drawing.Size(182, 26);
             this.dtDogumTarih.TabIndex = 10;
@@ -214,7 +215,8 @@ namespace PersonelTakipSistemi
             this.dtGirisTarih.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtGirisTarih.Location = new System.Drawing.Point(383, 39);
             this.dtGirisTarih.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dtGirisTarih.MaxDate = new System.DateTime(2023, 7, 23, 1, 44, 5, 0);
+            this.dtGirisTarih.MaxDate = new System.DateTime(2038, 1, 1, 0, 0, 0, 0);
+            this.dtGirisTarih.MinDate = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
             this.dtGirisTarih.Name = "dtGirisTarih";
             this.dtGirisTarih.Size = new System.Drawing.Size(183, 26);
             this.dtGirisTarih.TabIndex = 7;
@@ -523,6 +525,7 @@ namespace PersonelTakipSistemi
             this.btnTemizle.TabIndex = 4;
             this.btnTemizle.Text = "Temizle";
             this.btnTemizle.UseVisualStyleBackColor = true;
+            this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
             // 
             // btnSil
             // 
@@ -533,6 +536,7 @@ namespace PersonelTakipSistemi
             this.btnSil.TabIndex = 3;
             this.btnSil.Text = "Personel Kayıt Sil";
             this.btnSil.UseVisualStyleBackColor = true;
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
             // btnGuncelle
             // 
@@ -814,16 +818,18 @@ namespace PersonelTakipSistemi
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1371, 752);
+            this.ClientSize = new System.Drawing.Size(1371, 870);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupKayıt);
             this.Controls.Add(this.groupIslem);
             this.Controls.Add(this.groupGiris);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainForm";

@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,6 +18,7 @@ namespace PersonelTakipSistemi
         {
             InitializeComponent();
         }
+
         SqlConnection sqlConnection = new SqlConnection("Data Source=LAPTOP-2K70O5J\\SQLEXPRESS;Initial Catalog=PersonelTakip;Integrated Security=True");
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -93,17 +95,13 @@ namespace PersonelTakipSistemi
 
             txtPoz.Text = dataGridView1.Rows[index].Cells[8].Value.ToString();
 
-            DateTime date = dtGirisTarih.Value;
-
-
-            date = (DateTime)dataGridView1.Rows[index].Cells[9].Value;
+            dtGirisTarih.Text = dataGridView1.Rows[index].Cells[9].Value.ToString();
 
             txtIs.Text = dataGridView1.Rows[index].Cells[10].Value.ToString();
             txtTel.Text = dataGridView1.Rows[index].Cells[11].Value.ToString();
 
-            DateTime date1 = dtDogumTarih.Value;
+            dtDogumTarih.Text = dataGridView1.Rows[index].Cells[12].Value.ToString();
 
-            date1 = (DateTime)dataGridView1.Rows[index].Cells[12].Value;
 
             txtCinsiyet.Text = dataGridView1.Rows[index].Cells[13].Value.ToString();
             txtDep.Text = dataGridView1.Rows[index].Cells[14].Value.ToString();
@@ -146,5 +144,52 @@ namespace PersonelTakipSistemi
 
             sqlConnection.Close();
         }
+
+        private void btnSil_Click(object sender, EventArgs e)
+        {
+            sqlConnection.Open();
+
+            SqlCommand sqlCommand = new SqlCommand("delete from TblPerson where ID=@p1",sqlConnection);
+
+            sqlCommand.Parameters.AddWithValue("@p1", txtId.Text);
+            sqlCommand.ExecuteNonQuery();
+
+            MessageBox.Show("Personel Kaydı Silindi","Bilgilendirme",MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            sqlConnection.Close();
+        }
+
+        private void btnTemizle_Click(object sender, EventArgs e)
+        {
+            txtId.Text = "";
+
+            txtIsim.Text = "";
+            txtSoyisim.Text = "";
+            txtYas.Text = "";
+            txtKimlik.Text = "";
+            txtSube.Text = "";
+
+
+            dtDogumTarih.Value = dtDogumTarih.MinDate;
+            dtGirisTarih.Value= dtGirisTarih.MinDate;
+            txtMaas.Text = "";
+            radioButton1.Checked = false;
+
+            radioButton2.Checked = false;
+            txtPoz.Text = "";
+
+            txtIs.Text = "";
+            txtTel.Text = "";
+
+            txtCinsiyet.Text = "";
+            txtDep.Text = "";
+            txtMail.Text = "";
+            txtAdres.Text ="";
+            txtSgk.Text = "";
+        }
+
+
+
+       
     }   
 }
