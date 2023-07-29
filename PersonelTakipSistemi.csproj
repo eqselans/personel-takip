@@ -55,10 +55,10 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Giris.cs">
+    <Compile Include="Giris\Giris.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Giris.Designer.cs">
+    <Compile Include="Giris\Giris.Designer.cs">
       <DependentUpon>Giris.cs</DependentUpon>
     </Compile>
     <Compile Include="Kayit.cs">
@@ -77,7 +77,7 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Giris.resx">
+    <EmbeddedResource Include="Giris\Giris.resx">
       <DependentUpon>Giris.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Kayit.resx">

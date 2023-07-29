@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace PersonelTakipSistemi {
+namespace PersonelTakipSistemi.Db {
     
     
     /// <summary>
@@ -1328,7 +1328,7 @@ namespace PersonelTakipSistemi {
         }
     }
 }
-namespace PersonelTakipSistemi.PersonelTakipDataSetTableAdapters {
+namespace PersonelTakipSistemi.Db.PersonelTakipDataSetTableAdapters {
     
     
     /// <summary>
