@@ -49,11 +49,11 @@
     <Compile Include="ElipseToolDemo.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="AnaForm\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="AnaForm\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Giris\Giris.cs">
       <SubType>Form</SubType>
@@ -61,26 +61,26 @@
     <Compile Include="Giris\Giris.Designer.cs">
       <DependentUpon>Giris.cs</DependentUpon>
     </Compile>
-    <Compile Include="Kayit.cs">
+    <Compile Include="Kayit\Kayit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Kayit.Designer.cs">
+    <Compile Include="Kayit\Kayit.Designer.cs">
       <DependentUpon>Kayit.cs</DependentUpon>
     </Compile>
-    <Compile Include="PersonelTakipDataSet.Designer.cs">
+    <Compile Include="Db\PersonelTakipDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PersonelTakipDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="AnaForm\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Giris\Giris.resx">
       <DependentUpon>Giris.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Kayit.resx">
+    <EmbeddedResource Include="Kayit\Kayit.resx">
       <DependentUpon>Kayit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -92,15 +92,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="PersonelTakipDataSet.xsc">
+    <None Include="Db\PersonelTakipDataSet.xsc">
       <DependentUpon>PersonelTakipDataSet.xsd</DependentUpon>
     </None>
-    <None Include="PersonelTakipDataSet.xsd">
+    <None Include="Db\PersonelTakipDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>PersonelTakipDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="PersonelTakipDataSet.xss">
+    <None Include="Db\PersonelTakipDataSet.xss">
       <DependentUpon>PersonelTakipDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
